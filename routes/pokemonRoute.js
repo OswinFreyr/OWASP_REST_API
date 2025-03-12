@@ -10,7 +10,7 @@ router.get("/id", pokemonController.getPokemonById);
 router.post("/", pokemonController.createPokemon);
 router.post("/dresseurPokemon", pokemonController.addDresseurToPokemon);
 
-router.patch("/update", pokemonController.updatePokemon);
+router.put("/update", pokemonController.updatePokemon);
 
 router.delete("/delete", pokemonController.deletePokemon)
 

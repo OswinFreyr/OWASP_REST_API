@@ -70,4 +70,23 @@ async function deleteDresseur (req, res){
     }
 }
 
-module.exports = { createDresseur, getDresseurById, getAllDresseurs, addPokemonToDresseur, updateDresseur, deleteDresseur }
+async function loginDresseur(req, res){
+    try {
+        const login = await utilisateurService.loginDresseur(req.body);
+        res.json(login);
+    } catch (error) {
+        res.status(500).json({message: error.message})
+    }
+}
+
+async function logoutDresseur(req, res) {
+    try {
+        const token = req.headers.authorization;
+        const response = await dresseurService.logoutDresseur(token);
+        res.json(response);
+    } catch (error) {
+        res.status(400).json({ message: error.message });
+    }
+}
+
+module.exports = { createDresseur, getDresseurById, getAllDresseurs, addPokemonToDresseur, updateDresseur, deleteDresseur, loginDresseur, logoutDresseur, }
