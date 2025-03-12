@@ -72,7 +72,7 @@ async function deleteDresseur (req, res){
 
 async function loginDresseur(req, res){
     try {
-        const login = await utilisateurService.loginDresseur(req.body);
+        const login = await utilisateurService.loginDresseur();
         res.json(login);
     } catch (error) {
         res.status(500).json({message: error.message})
@@ -81,9 +81,8 @@ async function loginDresseur(req, res){
 
 async function logoutDresseur(req, res) {
     try {
-        const token = req.headers.authorization;
-        const response = await dresseurService.logoutDresseur(token);
-        res.json(response);
+        const logout = await dresseurService.logoutDresseur();
+        res.json(logout);
     } catch (error) {
         res.status(400).json({ message: error.message });
     }
