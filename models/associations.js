@@ -1,7 +1,7 @@
-const { User } = require("./users");
+const { Dresseur } = require("./dresseurs");
 const { Pokemon } = require("./pokemons");
 
-User.hasMany(Pokemon);
-Pokemon.belongsTo(User);
+Dresseur.hasMany(Pokemon);
+Pokemon.belongsTo(Dresseur);
 
-module.exports = { User, Pokemon, };
+module.exports = { Dresseur, Pokemon, };
