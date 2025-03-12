@@ -2,7 +2,7 @@ const Sequelize = require('sequelize');
 
 const db = new Sequelize({
   dialect: 'sqlite',
-  storage: '../database/bookshelf.sqlite',
+  storage: '../database/pokemon.sqlite',
   logging: false
 });
 
