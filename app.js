@@ -3,7 +3,7 @@ const express = require("express");
 const { db } = require("./models/db");
 
 const pokemonRouter = require("./routes/pokemonRoute");
-const userRouter = require("./routes/userRoute");
+const dresseurRouter = require("./routes/dresseurRoute");
 
 const app = express();
 const PORT = 2000;
@@ -16,7 +16,7 @@ const PORT = 2000;
 app.use(express.json({limit: "2mb"}));
 
 app.use("/api/v1/pokemons",pokemonRouter);
-app.use("/api/v1/users",userRouter);
+app.use("/api/v1/dresseurs",dresseurRouter);
 
 
 db.sync(/*{force : true}*/)
