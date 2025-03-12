@@ -3,6 +3,10 @@ const session = require("express-session");
 const cookieParser = require("cookie-parser");
 const { db } = require("./models/db");
 
+const jwtMiddleware = require('./middlewares/jwtMiddleware');
+
+const authRouter = require("./routes/authRoute");
+
 const pokemonRouter = require("./routes/pokemonRoute");
 const dresseurRouter = require("./routes/dresseurRoute");
 const authRouter = require("./routes/authRoutes"); 
@@ -24,6 +28,7 @@ app.use(session({
 app.use("/api/v1/pokemons", pokemonRouter);
 app.use("/api/v1/dresseurs", dresseurRouter);
 app.use("/api/v1/auth", authRouter); 
+app.use("/api/v1/login", authRouter);
 
 db.sync(/*{ force: true }*/)
     .then(() => {

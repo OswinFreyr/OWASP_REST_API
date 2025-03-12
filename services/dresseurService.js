@@ -87,4 +87,12 @@ async function deleteDresseur(dresseurId) {
     }
 }
 
-module.exports = { createDresseur, getDresseurById, getAllDresseurs, addPokemonToDresseur, updateDresseur, deleteDresseur }
+async function loginDresseur() {
+    
+}
+
+async function logoutDresseur() {
+    
+}
+
+module.exports = { createDresseur, getDresseurById, getAllDresseurs, addPokemonToDresseur, updateDresseur, deleteDresseur, loginDresseur, logoutDresseur }

@@ -7,10 +7,11 @@ router.get("/", dresseurController.getAllDresseurs);
 router.get("/limit", dresseurController.getLimitedDresseurs);
 router.get("/id", dresseurController.getDresseurById);
 
-router.post("/", dresseurController.createDresseur);
+// router.post("/", dresseurController.createDresseur);
 router.post("/pokemonDresseur", dresseurController.addPokemonToDresseur);
+router.post("/logout", dresseurController.logoutDresseur);
 
-router.patch("/update", dresseurController.updateDresseur);
+router.put("/update", dresseurController.updateDresseur);
 
 router.delete("/delete", dresseurController.deleteDresseur)
 
