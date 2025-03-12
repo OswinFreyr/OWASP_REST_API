@@ -1,10 +1,24 @@
 const { Dresseur, Pokemon } = require("../models/associations");
-
+const bcrypt = require('bcrypt');
 
 async function createDresseur(dresseur) {
+    const saltRounds = 10; 
+    
+    const hashPassword = async (plainPassword) => {
+        try {
+            const salt = await bcrypt.genSalt(saltRounds);
+            const hashedPassword = await bcrypt.hash(plainPassword, salt);
+            return hashedPassword;
+        } catch (error) {
+            console.error('Erreur lors du hachage du mot de passe :', error);
+            throw error;
+        }
+    };
+    
+    dresseur.password = await hashPassword(dresseur.password);
+
     return await Dresseur.create(dresseur);
 }
-
 async function getDresseurById(id) {
     const dresseur = await Dresseur.findByPk(id, {
         include: [
